@@ -2,7 +2,7 @@
 FROM rust:1.70.0-alpine AS builder
 WORKDIR /app/
 ENV DATABASE_URL=value
-RUN apk update && apk add --no-cache pcc-libs-dev musl-dev pkgconfig openssl-dev
+RUN apk update && apk add --no-cache musl-dev pkgconfig openssl-dev
 RUN --mount=type=cache,target=/usr/local/cargo/registry cargo install cargo-strip
 
 COPY . .
